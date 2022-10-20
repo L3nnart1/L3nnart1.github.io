@@ -8,7 +8,9 @@
     <title>Document</title>
     <h1>Snake Game</h1>
 </head>
-<body>
+<body ontouchstart="touchStart(event)"
+ontouchmove="touchMove(event)"
+ontouchend="touchEnd()">
 
     <div>
         <canvas id="canvas" class="canvas"></canvas>
