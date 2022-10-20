@@ -109,6 +109,29 @@ function gameover(){
     }
 }
 
+var startingX , startingY , movingX , movingY;
+function touchStart(evt){
+    startingX = evt.touches[0].clientX ;
+    startingY = evt.touches[0].clientY ;
+}
+function touchMove(evt){
+    movingX = evt.touches[0].clientX ;
+    movingY = evt.touches[0].clientY ;
+}
+function touchEnd(){
+    if(startingX+100 < movingX){
+        direction = "RIGHT";
+    } 
+    else if(startingX-100 > movingX){
+        direction = "LEFT";
+    }
+    if(startingY+100 < movingY){
+        direction = "DOWN";
+    } 
+    else if(startingY-100 > movingY){
+        direction = "UP";
+    }
+}
 
 function keyDown(e){
     if (e.keyCode == 37) {
