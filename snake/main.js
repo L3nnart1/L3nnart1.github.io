@@ -126,10 +126,10 @@ function touchEnd(){
         direction = "LEFT";
     }
     if(startingY+100 < movingY){
-        direction = "DOWN";
+        direction = "UP";
     } 
     else if(startingY-100 > movingY){
-        direction = "UP";
+        direction = "DOWN";
     }
 }
 
