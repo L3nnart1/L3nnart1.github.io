@@ -1,42 +1,55 @@
+const score = document.querySelector("#score");
+const highscoretxt = document.querySelector("#highscore");
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
+let slider = document.getElementById("myRange");
+let speed = document.getElementById("speed");
 document.addEventListener("keydown", keyDown);
-
 canvas.style.background = "#4979aa";
 
 canvas.width = 600;
 canvas.height = 600;
+let cellWidth;
+let cellHeight;
+let rows = slider.value;
+let cols = slider.value;
 
-let rows = 20;
-let cols = 20;
+function updaterows(){
+    rows = slider.value;
+    cols = slider.value;
+    cellWidth = canvas.width / cols;
+    cellHeight = canvas.height / rows;
+}
 let snake = [{
-    x:10,
-    y:10,
+    x:Math.floor(cols / 2),
+    y:Math.floor(rows / 2),
 }]
-let cellWidth = canvas.width / cols;
-let cellHeight = canvas.height / rows;
 let direction;
 let food_collected = false;
 
 placefood();
-setInterval(game_loop, 100);
+setInterval(game_loop, 110);
+setInterval(updaterows, 100);
+
+let counter = 0;
+let highscore = 0;
 
 function add(x, y){
     ctx.fillRect(x * cellWidth, y * cellHeight, cellWidth - 2, cellHeight - 2);
 }
-
+updatescore();
 draw();
 
 function draw(){
-    ctx.fillStyle = '#25496d';
+    ctx.fillStyle = "#224d77";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "black"
+    ctx.fillStyle = "#0c370a"
     snake.forEach(part => add(part.x, part.y));
-
-
-    ctx.fillStyle = "#7ed673"
+    ctx.fillStyle = "#7ed673";
     add(food.x, food.y);
-    requestAnimationFrame(draw)
+    ctx.fillStyle = "#0a2908";
+    add(snake[0].x, snake[0].y);
+    requestAnimationFrame(draw);
 }
 function placefood() {
     let randx = Math.floor(Math.random() * cols);
@@ -49,7 +62,7 @@ function placefood() {
         return snake.x == foodtest[0].x && snake.y == foodtest[0].y
     })
     if (isduplicate){
-        placefood()
+        placefood();
     }
     else{
         food = {
@@ -67,8 +80,8 @@ function shiftSnake() {
     }
 }
 
-function game_loop(){
 
+function game_loop(){
     if (food_collected){
         snake = [{
             x:snake[0].x,
@@ -92,6 +105,11 @@ function game_loop(){
     }
     if (snake[0].x == food.x && snake[0].y == food.y){
         food_collected = true;
+        counter += 1;
+        if (counter > highscore){
+            highscore += 1;
+        }
+        updatescore();
         placefood();
     }
     gameover();
@@ -102,48 +120,29 @@ function gameover(){
     let duplicate = tail.find(part => part.x == head.x && part.y == head.y);
     if (snake[0].x > cols-1 || snake[0].y > rows-1 || snake[0].x < 0 || snake[0].y < 0 || duplicate){
         snake = [{
-            x:10,
-            y:10
+            x:Math.floor(slider.value / 2),
+            y:Math.floor(slider.value / 2)
         }]
         direction = " ";
+        counter = 0;
+        updatescore();
     }
 }
-
-var startingX , startingY , movingX , movingY;
-function touchStart(evt){
-    startingX = evt.touches[0].clientX ;
-    startingY = evt.touches[0].clientY ;
-}
-function touchMove(evt){
-    movingX = evt.touches[0].clientX ;
-    movingY = evt.touches[0].clientY ;
-}
-function touchEnd(){
-    if(startingX+100 < movingX){
-        direction = "RIGHT";
-    } 
-    else if(startingX-100 > movingX){
-        direction = "LEFT";
-    }
-    if(startingY+100 < movingY){
-        direction = "UP";
-    } 
-    else if(startingY-100 > movingY){
-        direction = "DOWN";
-    }
-}
-
 function keyDown(e){
-    if (e.keyCode == 37) {
+    if (e.keyCode == 37 && direction != "RIGHT") {
         direction = "LEFT";
     }
-    if (e.keyCode == 40) {
+    if (e.keyCode == 40 && direction != "DOWN") {
         direction = "UP";
     }
-    if (e.keyCode == 39) {
+    if (e.keyCode == 39 && direction != "LEFT") {
         direction = "RIGHT";
     }
-    if (e.keyCode == 38) {
+    if (e.keyCode == 38 && direction != "UP") {
         direction = "DOWN";
     }
+}
+function updatescore(){
+    score.textContent = counter;
+    highscoretxt.textContent = highscore;
 }
