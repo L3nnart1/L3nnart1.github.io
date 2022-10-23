@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="snakestyle.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Snake</title>
     <h1>Snake Game</h1>
 </head>
-<body ontouchstart="touchStart(event)"
-ontouchmove="touchMove(event)"
-ontouchend="touchEnd()">
+<body>
 
     <div>
         <canvas id="canvas" class="canvas"></canvas>
     </div>
-    
+    <div class="container">
+        <h2 class="item">Score: </h2>
+        <h2 class="item "id="score"></h2>
+        <h2>ㅤㅤ</h2>
+        <h2 class="item">Highscore:</h2>
+        <h2 class="item" id="highscore"></h2>
+    </div>
+    <h2 class="item3" class="schwierigkeit">Spielfeld:ㅤ</h2>
+    <div class="slidecontainer">
+        <input onclick="placefood()" type="range" min="8" max="25" value="15" id="myRange" class="slider">
+    </div>
+    <h1>ㅤㅤ</h1>
 </body>
 
-    <script src="main.js"></script>
+    <script src="snakemain.js"></script>
 
 </html>
