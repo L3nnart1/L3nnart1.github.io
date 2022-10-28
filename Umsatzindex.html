@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="Umsatz.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umsatzrechner</title>
+</head>
+<body>
+    <button onclick="reset()" class="reset" id="reset">Reset</button>
+    <div class="input">
+        <input type="text" placeholder="Herstellungspreis" id="Herstellungspreis" class="input">
+        <input id="monate" type="text" placeholder="Monate" class="input">
+        <input id="verkaufspreis" type="text" placeholder="Verkaufspreis" class="input">
+        <button id="absenden" onclick="rechner()">Berechnen</button>
+    </div>
+<div class="currentsquare">
+    <input type="range" min="0" max="7" value="0" id="myRange" onclick="data()" class="slider">
+    <h5 id="nummer" class="nummer"></h5>
+    <h5 id="vPreis" class="nummer"></h5>
+    <h5 id="monateAnzeige" class="nummer"></h5>
+    <h5 id="verkäufe"></h5>
+    <h5 id="gewinn" class="gewinnslide"></h5>
+</div>
+    <div>
+        <canvas class="canvas" id="canvas"></canvas>
+    </div>
+    <div class="berechnungen">    
+        <h5 id="antwort"></h5>
+        <h5 id="gewinnsumme"></h5>
+        <h5 id="umsatzsumme"></h5>
+    </div>
+    <div class="count">
+        <h5 class="zahl">1</h5>
+        <h5 class="zahl">2</h5>
+        <h5 class="zahl">3</h5>
+        <h5 class="zahl">4</h5>
+        <h5 class="zahl">5</h5>
+        <h5 class="zahl">6</h5>
+        <h5 class="zahl">7</h5>
+        <h5 class="zahl">8</h5>
+    </div>
+    
+</body>
+<script src="Umsatzmain.js"></script>
+</html>
