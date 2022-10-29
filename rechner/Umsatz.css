@@ -1,0 +1,91 @@
+body{
+    text-align: center;
+    margin-top: 5%;
+    background-color: #191d26;
+    overflow: hidden;
+}
+.input{
+    margin-top: -30px;
+    margin-bottom: 20px;
+    background-color: #191d26;
+    border-color: black;
+    border-radius: 20px;
+    color: #505fa0;
+    font-size: 15px;
+    font-weight: bold;
+}
+button{
+    font-size: 18px;
+    background-color:#222632;
+    border-radius: 20px;
+    box-shadow: #505fa0;
+    color: #505fa0;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+button:hover{
+    opacity: 90%;
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 #505fa0;
+}
+canvas{
+    border-radius: 20px;
+    box-shadow: 0 0 10px 0 #505fa0;
+}
+.berechnungen{
+    display: flex;
+    justify-content: center;
+}
+h5{
+    color: #b7bbc7;
+    margin-left: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+.currentsquare{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin-top: 34.8%;
+    margin-left: 44%;
+}
+.gewinnslide{
+    margin-top: -30px;
+}
+.slider{
+    -webkit-appearance: none;
+    margin-bottom: -20px;
+    background: #222632;
+    border-radius: 10px;
+}
+.slider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background: #505fa0;
+}
+.slider:hover{
+    box-shadow: 0 0 10px 0 #505fa0;
+}
+.nummer{
+    margin-bottom: -30px;
+}
+.reset{
+    position: absolute;
+    margin-left: -22%;
+    margin-top: 14%;
+    height: 200px;
+}
+.count{
+    display: flex;
+    position: absolute;
+    margin-left: 35.7%;
+    margin-top: -5.2%;
+}
+.zahl{
+    font-size: 12px;
+    margin-right: 47.4px;
+}
