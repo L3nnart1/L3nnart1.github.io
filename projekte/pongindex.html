@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="pongstyle.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ping Pong</title>
+</head>
+<body>
+    <a href="/Spielewebsite/projekte.html">Zurück</a>
+    <h1 id="Gewinner"></h1>
+    <div class="allmode">
+        <div class="mode">
+            <input type="checkbox" name="Easy" id="easy">
+            <label for="easy">Einfach</label>
+        </div>
+        <div class="mode">
+            <input type="checkbox" name="Medium" id="medium">
+            <label for="medium">Mittel</label>
+        </div>
+        <div class="mode">
+            <input type="checkbox" name="Impossible" id="impossible">
+            <label for="impossible">Unmöglich</label>
+        </div>
+    </div>
+    <div class="scoreboard">
+        <h2 id="Scorebot"></h2>
+        <h2 class="trenner">ㅤ</h2>
+        <h2 id="Scoreplayer"></h2>
+    </div>
+    <h3 id="pause"></h3>
+    <canvas id="canvas"></canvas>
+</body>
+<script src="pongmain.js"></script>
+</html>
