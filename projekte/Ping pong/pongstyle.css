@@ -1,0 +1,97 @@
+body{
+    background-color: #191d26;
+    text-align: center;
+}
+a{
+    font-family: sans-serif;
+    margin-top: 1%;
+    margin-left: -27%;
+    text-decoration: none;
+    color: grey;
+    position: absolute;
+    font-size: 40px;
+}
+h1{
+    position: absolute;
+    margin-left: 33.5%;
+    font-size: 70px;
+    margin-top: 1%;
+}
+canvas{
+    margin-top: 6%;
+    z-index: -1;
+    border-radius: 20px;
+}
+canvas:hover{
+    cursor: none;
+}
+.scoreboard{
+    font-size: 28px;
+    margin-left: 45.85%;
+    margin-top: 5.2%;
+    color: white;
+    position: absolute;
+    display: flex;
+    z-index: 2;
+}
+h2{
+    margin: 10px;
+}
+.trenner{
+    font-family: sans-serif;
+}
+h3{
+    color: grey;
+    position: absolute;
+    margin-left: 35%;
+    margin-top: 19%;
+    font-size: 50px;
+}
+.allmode{
+    position: absolute;
+    display: flex;
+    font-size: 30px;
+    font-weight: bold;
+    color: lightgray;
+    margin-top: 39%;
+    margin-left: 35%;
+}
+.mode{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+* {
+    box-sizing: border-box;
+}
+.mode label{
+    width: 190px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+}
+.mode input[type=checkbox]{
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+}
+.mode label::before {
+    content: "";
+    width: 1em;
+    height: 1em;
+    border:0.05em solid gray;
+    border-radius: .15em;
+    margin-right: .5em;
+}
+.mode label:hover::before,
+.mode input[type=checkbox]:hover + label::before{
+    background-color: grey;
+}
+.mode input[type='checkbox']:checked + label::before {
+    content: '\002714';
+    background-color: lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
