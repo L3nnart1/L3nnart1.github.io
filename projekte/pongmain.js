@@ -9,7 +9,7 @@ let medium = document.querySelector("#medium");
 let impossible = document.querySelector("#impossible")
 document.addEventListener("keydown", updatecounter);
 canvas.style.background = "black";
-let pongsound = new Audio('/Ping Pong/X2Download (mp3cut.net).mp3');
+let pongsound = new Audio('X2Download (mp3cut.net).mp3');
 
 let playervalue = 0;
 let botvalue = 0;
