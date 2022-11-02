@@ -1,0 +1,60 @@
+.allmode{
+    margin-top: -875px;
+    position: absolute;
+    display: flex;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+canvas{
+    margin-top: 0px;
+}
+a{
+    font-family: sans-serif;
+    margin-top: -48%;
+    margin-left: 25px;
+    text-decoration: none;
+    color: black;
+    position: absolute;
+    font-size: 30px;
+    font-weight: bold;
+}
+.mode{
+    display: flex;
+    margin-left: 20%;
+    position: absolute;
+}
+input{    
+    position: absolute;
+    margin-left: 100px;
+    -webkit-appearance: none;
+    border: solid;
+    border-radius: 10px;
+    background-color: steelblue;
+}
+input:hover{
+    cursor: pointer;
+}
+.reib{
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    margin-top: 25px;
+}
+.reibL{
+    margin-top: 25px;
+}
+button{
+    margin-left: 20%;
+    margin-top: 48px;
+    background-color: steelblue;
+    font-family: sans-serif;
+    width: 120px;
+    height: 30px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+button:hover{
+    cursor: pointer;
+}
