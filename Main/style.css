@@ -18,7 +18,7 @@
 }
 @font-face {
   font-family: culture;
-  src: url("/Main/font/culture-bold-webfont.ttf");
+  src: url("culture-bold-webfont.ttf");
 }
 
 * {
@@ -212,7 +212,7 @@ h1 {
     font-size: 9vw;
 }
 .Landertxt{
-    background-image: url(/Main/content/giphy-abstrakt.gif);
+    background-image: url(giphy-abstrakt.gif);
     background-size: cover;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
