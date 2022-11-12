@@ -1,0 +1,210 @@
+body {
+    background-color: #191d26;
+    margin: 0;
+    overflow-x: hidden;
+}
+.allmode {
+    margin-left: 30vw;
+    position: absolute;
+    width: 70vw;
+    height: 10px;
+    display: flex;
+    color: white;
+    font-size: 2vw;
+    top: 89vh;
+}
+.allmode .mode:nth-child(2) {
+    margin-left: 6%;
+}
+.allmode .mode:nth-child(3) {
+    margin-left: 6%;
+}
+.scoreboard {
+    margin-bottom: -100px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    z-index: 99;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin-left: 23vw;
+}
+canvas {
+    border-radius: 20px;
+}
+#pause {
+    color: grey;
+    text-align: center;
+    font-size: 3.5vw;
+    margin-top: -23vw;
+    padding-bottom: 2vw;
+    z-index: 98;
+}
+.scoreboard h2:nth-child(2) {
+    margin-left: 35vw;
+}
+button {
+    position: absolute;
+    appearance: none;
+    opacity: 0;
+    cursor: default;
+    margin-left: 10vw;
+    width: 80px;
+    height: 200px;
+    margin-top: -160px;
+    background-color: grey;
+    border: none;
+    color: white;
+    border-radius: 20px;
+}
+.range {
+    position: absolute;
+    opacity: 0;
+}
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 60px;
+    height: 30px;
+    border-radius: 20px;
+    z-index: 97;
+}
+#Gewinner {
+    position: absolute;
+    color: white;
+    font-size: 3vw;
+    margin-left: 33vw;
+}
+@media(max-width: 1200px) {
+    .range {
+        -webkit-appearance: none;
+        opacity: 100;
+        right: 0;
+        margin-top: -38px;
+        rotate: 90deg;
+        width: 470px;
+        height: 40px;
+        background-color: #191d26;
+        border-radius: 20px;
+    }
+    button {
+        opacity: 100;
+        margin-top: -100px;
+        background-color: #191d26;
+    }
+    .container {
+        margin-left: 24vw;
+    }
+    .allmode {
+        top: 70vh;
+        font-size: 3vh;
+        margin-left: 31%;
+    }
+    #pause {
+        margin-top: -25vw;
+    }
+    #Gewinner {
+        color: white;
+        margin-left: 33vw;
+        top: -22px;
+    }
+}
+@media (max-width: 767px) {
+    button {
+        height: 50px;
+        width: 200px;
+        opacity: 100;
+        margin-top: 36vh;
+        margin-left: 35vw;
+    }
+    .range {
+        opacity: 0;
+    }
+    .scoreboard h2:nth-child(2) {
+        margin-left: 80vw;
+    }
+    canvas {
+        margin-left: -15px;
+        margin-top: 40px;
+    }
+    .scoreboard {
+        font-size: 20px;
+        margin-bottom: -105px;
+        margin-top: 50px;
+    }
+    .container {
+        margin-left: 5vw;
+    }
+    #pause {
+        margin-top: -65vw;
+        font-size: 7vw;
+    }
+    .allmode{
+        width: 400px;
+        margin-top: 27vh;
+        font-size: 5vw;
+        margin-left: 12%;
+        top: 270px;
+    }
+    #Gewinner {
+        color: white;
+        position: absolute;
+        top: 0;
+        font-size: 4vh;
+        width: 100vw;
+        margin-left: 40px;
+        margin-top: 34px;
+    }
+}
+.mode {
+    display: flex;
+    align-items: center;
+}
+
+.mode label {
+    cursor: pointer;
+    display: flex;
+}
+
+.mode input[type='checkbox'] {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+}
+
+.mode label::before {
+    content: '';
+    width: 1em;
+    height: 1em;
+    border-radius: .15em;
+    margin-right: .5em;
+    border: .08em solid black;
+}
+
+.mode label:hover::before,
+.mode input[type='checkbox']:hover + label::before {
+    background-color: #191d26;
+}
+
+.mode input[type='checkbox']:disabled + label,
+.checkbox-container input[type='checkbox']:disabled {
+    color: #aaa;
+    cursor: default;
+}
+
+.mode input[type='checkbox']:checked + label::before {
+    content: '\002714';
+    background-color: #191d26;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+}
+
+.mode input[type='checkbox']:disabled + label::before {
+    background-color: #ccc;
+    border-color: #999;
+}
