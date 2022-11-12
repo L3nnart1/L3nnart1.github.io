@@ -23,11 +23,25 @@ function change() {
 window.addEventListener("scroll", () => {
     const Scrolled = window.scrollY;
 
+    if (Scrolled > 19) {
+        oben.classList.remove("at-top");
+        unten.classList.remove("at-end");
+    }
+
+    if (Scrolled < 20) {
+//       oben.style.setProperty("margin-left", `0px`);
+//       unten.style.setProperty("margin-left", `0px`);
+        oben.classList.add("at-top");
+        unten.classList.add("at-end");
+        count = 0;
+        count2 = 0;
+    }
+
     if (window.matchMedia("(max-width: 767px").matches) {
         arr.push(Scrolled);
         arr.splice(0,1);
     
-        if (arr[1] > 0 && arr[1] < 1000){
+        if (arr[1] > 19 && arr[1] < 1000){
             if (arr[0] < arr[1]) {
                 count += 4;
                 count2 -= 4;
@@ -54,33 +68,28 @@ window.addEventListener("scroll", () => {
             arr.push(Scrolled);
             arr.splice(0,1);
             
-            if (arr[1] > 0 && arr[1] < 1000){
+            if (arr[1] > 19 && arr[1] < 1000){
                 if (arr[0] < arr[1]) {
-                    count += 8;
-                    count2 -= 8;
+                    count += 5;
+                    count2 -= 5;
                 }
                 if (arr[0] > arr[1]){
                     if (count > 0) {
-                        count -= 8.5;
-                        count2 += 8.5;
+                        count -= 6;
+                        count2 += 6;
                     }
                 }
                 oben.style.setProperty("margin-left", `${count}px`);
                 unten.style.setProperty("margin-left", `${count2}px`);
             };   
         }
-        if (Scrolled === 0) {
-            oben.style.setProperty("margin-left", "0px");
-            unten.style.setProperty("margin-left", "0px");
-            count = 0;
-            count2 = 0;
-        }
     }
 });
 
-const Lander = document.querySelector(".Landertxt");
+const Lander = document.querySelector(".Landertxt")
 
-let userAgent = navigator.userAgent;
-if (userAgent.match(/safari/i)) {
-    Lander.classList.toggle("is-active");
+if (navigator.vendor.startsWith('Apple')) {
+    Lander.classList.add('is-active');
+    oben.classList.add("apple");
+    unten.classList.add("apple")
 }
