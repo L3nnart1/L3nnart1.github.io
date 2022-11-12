@@ -18,7 +18,15 @@
 }
 @font-face {
   font-family: culture;
-  src: url("culture-bold-webfont.ttf");
+  src: url("/Main/font/culture-bold-webfont.ttf");
+}
+@font-face {
+  font-family: spacemono;
+  src: url(/Main/content/SpaceMono-Regular.ttf);
+}
+@font-face {
+  font-family: spacemono-bold;
+  src: url(/Main/content/SpaceMono-Bold.ttf);
 }
 
 * {
@@ -29,12 +37,31 @@
 }
 
 body {
-  background-color: #322227;
+/*  background-color: #feebbf; */
+  background-color: #253361;
+/*  background-color: #cdb9f5; */
+/*  background-color: #212636; */
+  background-color: #151620;
 }
 p{
     margin-top: 500px;
     font-size: large;
 }
+.wrapper {
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+}
+.parallax-wrapper::before {
+  content:"";
+  width: 100vw;
+  height: 100vh;
+  top:0;
+  left:0;
+  background-color: black;
+  position: absolute;
+  z-index: -1;
+}
+
 
 header {
   display: flex;
@@ -45,6 +72,7 @@ header {
   left: 0;
   right: 0;
   z-index: 99;
+  mix-blend-mode: difference;
   /*    background-color: var(--secundary); */
   /*    border-bottom: 3px solid var(--dark); */
 }
@@ -55,6 +83,7 @@ header {
 }
 
 .Logoheader {
+  font-family: sans-serif;
   color: beige;
   font-size: 38px;
   text-align: center;
@@ -63,6 +92,7 @@ header {
   padding-top: 2px;
   cursor: default;
   overflow-y: hidden;
+
 }
 
 h3 {
@@ -87,7 +117,7 @@ h3 {
   background: none;
   cursor: pointer;
   /*    background-color: var(--dark); */
-  width: 60px;
+  width: 65px;
   height: 60px;
   border-radius: 10px;
 }
@@ -138,8 +168,8 @@ h3 {
   width: 100%;
   min-height: 100vh;
   z-index: 98;
-  padding-top: 120px;
   transition: 0.4s;
+  padding-top: -10vh;
 }
 
 .homelink {
@@ -185,7 +215,7 @@ h3 {
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -193,7 +223,7 @@ h3 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #22181b;
+  background: beige;
   border-radius: 20px;
 }
 .Hero {
@@ -203,30 +233,62 @@ h3 {
     margin-top: 0;
     transform: scaleY(2.5);
     line-height: 4vw;
+    cursor: default;
 }
 
 h1 {
-  font-family: culture;
+  font-family: spacemono-bold;
     text-align: center;
     color: var(--primary);
     font-size: 9vw;
+    letter-spacing: -0.5vw;
 }
 .Landertxt{
-    background-image: url(giphy-abstrakt.gif);
+    background-image: url(/Main/content/giphy-abstrakt.gif);
     background-size: cover;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+.Landertxt.is-active{
+  background-image: none;
+  -webkit-text-fill-color: var(--primary);
+  background-image: none;
+  height: 700px;
+  overflow-y: hidden;
+}
+.oben.apple {
+  font-size: 8vw;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  overflow-y: hidden;
+  margin-top: 270px;
+}
+.unten.apple {
+  margin-top: -20px;
+  font-size: 8vw;
+  padding-top: 20px;
+  overflow-y: hidden;
+}
+.oben.at-top {
+  -webkit-animation: start 0.4s forwards;
+  animation: start 0.4s forwards;
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+}
+.unten.at-end {
+  -webkit-animation: end 0.4s forwards;
+  animation: end 0.4s forwards;
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+}
 .oben {
     margin-top: 225px;
 }
-
 .unten {
-  color: var(--primary);
   padding-bottom: 10px;
 }
-.P1 {
-  margin-top: 640px;
+.spiele {
+  margin-top: 200vh;
 }
 .Hero.is-active {
   -webkit-animation: slide 0.4s forwards;
@@ -234,8 +296,295 @@ h1 {
   -webkit-animation-timing-function: cubic-bezier(0.68, 0.25, 0.47, 1.46);
           animation-timing-function: cubic-bezier(0.68, 0.25, 0.47, 1.46);
 }
-
+@keyframes start {
+  100%{
+    margin-left: 0px;
+  }
+}
+@keyframes end {
+  100% {
+    margin-left: 0px;
+  }
+}
+.Projekt-1{
+  margin-top: 20%;
+  height: 44vw;
+  width: 85vw;
+  border: solid beige 5px;
+/*  background-color: beige; */
+  overflow: hidden;
+  border-radius: 50px;
+  margin-left: 7.5vw;
+}
+.img {
+  rotate: 0deg;
+  margin-top: 1.8vw;
+  margin-left: 4.3vw;
+/*  width: 70vw; */
+  margin-right: 10vw;
+  height: 40vw;
+  background-color: black;
+  border-radius: 50px;
+  filter: brightness(0.85);
+}
+.P1-header {
+  position: absolute;
+  color: var(--primary);
+  z-index: 3;
+  font-size: 8vw;
+  margin-left: 11%;
+  margin-top: -10.5vw;
+/*  top: 100px; */
+  font-family: spacemono-bold;
+}
+@keyframes strech {
+  100%{
+    transform: scaleY(1.5);
+  }
+}
+.P1-sub {
+  overflow: hidden;
+  text-transform: uppercase;
+  position: absolute;
+  color: white;
+  font-family: spacemono;
+  line-height: 3vw;
+  text-align: center;
+  margin-top: 2vw;
+  font-size: 3vw;
+  margin-left: -4vw;
+  width: 90vw;
+  cursor: default;
+}
+.Projekt-2 {
+  overflow: hidden;
+  display: flex;
+  border: solid beige 5px;
+  margin-top: 30%;
+  height: 54vw;
+  padding-top: 2vw;
+  width: 95vw;
+  border-radius: 50px;
+  margin-left: 2.5vw;
+}
+.P2-img1{
+  width: 30vw;
+  height: 42vw;
+  margin-top: 6vw;
+  margin-left: 5vw;
+  margin-bottom: 20px;
+  background-color: black;
+  animation: move 10s linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+@keyframes move {
+  0%{
+    border-radius: 50px;
+  }
+  100% {
+    margin-top: 1vw;
+    border-radius: 100px;
+  }
+}
+.P2-header {
+  color: var(--primary);
+  text-decoration: none;
+  font-family: spacemono-bold;
+  position: absolute;
+  margin-left: 36.4vw;
+  margin-top: 12vw;
+  font-size: 7vw;
+  transition: ease-in-out 0.2s;
+}
+.P2-header span:nth-child(2){
+  color: #033e7c;
+  margin-right: -4.2vw;
+  width: 100px;
+  height: 10px;
+}
+.P2-header:hover span:nth-child(2){
+  color: #ededd1;
+}
+.P2-header span:nth-child(3){
+  color: #f65b3c;
+}
+.P2-header span:nth-child(3):hover{
+  color: #f6d356
+}
+.P2-header span:nth-child(4){
+  color: #f6d356;
+}
+.P2-header span:nth-child(4):hover{
+  color: #033e7c;
+}
+.P2-header span:nth-child(5){
+  color: #ededd1;
+}
+.P2-header span:nth-child(5):hover{
+  color: #f65b3c
+}
+.P2-header span:nth-child(6){
+  color: #f29747;
+}
+.P2-header span:nth-child(6):hover{
+  color: #033e7c;
+}
+.P2-info {
+  color: white;
+  position: absolute;
+  text-align: center;
+  margin-left: 29.8vw;
+  margin-top: 24vw;
+  font-size: 2vw;
+  font-family: spacemono;
+  mix-blend-mode: difference;
+  cursor: default;
+}
+.P2-img2 {
+  width: 30vw;
+  height: 42vw;
+  margin-top: 20px;
+  margin-left: 25vw;
+  margin-bottom: 20px;
+  background-color: black;
+  animation: move2 10s linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  transition: 0.3s;
+}
+@keyframes move2 {
+  0%{
+    border-radius: 50px;
+  }
+  100% {
+    margin-top: 7vw;
+    border-radius: 100px;
+  }
+}
+.Projekt-3 {
+  overflow: hidden;
+  display: flex;
+  border: solid beige 5px;
+  margin-top: 30%;
+  height: 54vw;
+  padding-top: 2vw;
+  width: 95vw;
+  border-radius: 50px;
+  margin-left: 2.5vw;
+}
+.P3-img1{
+  width: 30vw;
+  height: 42vw;
+  margin-top: 20px;
+  margin-left: 4vw;
+  margin-bottom: 20px;
+  background-color: black;
+  animation: move2 10s linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  transition: 0.3s;
+}
+.P3-sub {
+  overflow: hidden;
+  text-transform: uppercase;
+  position: absolute;
+  color: white;
+  font-family: spacemono;
+  line-height: 3vw;
+  text-align: center;
+  margin-top: 34vh;
+  font-size: 2vw;
+  margin-left: 34vw;
+  cursor: default;
+  width: 25vw;
+  z-index: 99;
+}
+.P3-header {
+  margin-left: 25vw;
+  margin-top: -26vh;
+  font-size: 8vw;
+  font-family: spacemono-bold;
+  position: absolute;
+  text-decoration: none;
+  color: var(--primary);
+  z-index: 99;
+}
+.P3-info {
+  color: white;
+  position: absolute;
+  text-align: center;
+  margin-left: 29.8vw;
+  margin-top: 24vw;
+  font-size: 2vw;
+  font-family: spacemono;
+  mix-blend-mode: difference;
+}
+.P3-img2 {
+  width: 30vw;
+  height: 42vw;
+  margin-top: 20px;
+  margin-left: 25vw;
+  margin-bottom: 20px;
+  background-color: black;
+  animation: move2 10s linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  transition: 0.3s;
+}
+.info{
+  margin-top: -40vh;
+  position: absolute;
+  width: 100vw;
+  height: 20vh;
+  border: solid black;
+  padding-top: 1vh;
+  margin-bottom: -30vh;
+}
+.copy{
+  font-size: 1.5vw;
+  opacity: 0.3;
+  margin-left: 44vw;
+  margin-top: 3vh;
+  color: rgb(78, 78, 78);
+}
+.Imp {
+  color: rgb(0, 0, 0);
+  font-size: 3vw;
+  margin-left: 42vw;
+  margin-top: 1.8vh;
+}
+a {
+  text-decoration: none;
+}
+.gametitle {
+  font-size: 9vw;
+  margin-left: 22vw;
+  margin-top: 25vh;
+  margin-bottom: -32vh;
+  font-family: spacemono-bold;
+  cursor: default;
+}
+.gamesub {
+  font-size: 3vw;
+  font-family: spacemono;
+  margin-left: 14vw;
+  margin-top: 2vh;
+  cursor: default;
+}
+.gamecont{
+  margin-top: 30vh;
+  margin-left: 10vw;
+  height: 800px;
+  width: 80vw;
+  overflow-y: hidden;
+  border-radius: 100px;
+  border: solid var(--primary);
+}
 @media (min-width: 768px) {
+    .spiele {
+      margin-top: 10vw;
+    }
     .hamburger {
         display: block;
     }
@@ -243,21 +592,24 @@ h1 {
         margin-left: 45vw;
     }
     .homelink {
-        background-color: rgba(255, 255, 255, 0);
-        font-size: 50px;
-        font-family: "Times New Roman", Times, serif;
+        background-color: transparent;
+        font-size: 5vw;
+        font-family: spacemono;
         margin: 0 auto 16px;
-        width: -webkit-fit-content;
-        width: -moz-fit-content;
-        width: fit-content;
-        height: 80px;
         max-width: none;
         text-align: left;
-        margin-left: 32%;
-        color: var(--primary);
+        margin-left: 15%;
+        color: black;
         text-decoration: none;
         border-radius: 50px;
         transition: 0.2s;
+    }
+    .toplink{
+      margin-top: 2vh;
+    }
+    .tophome {
+      height: 100vh;
+      margin-top: -50vh;
     }
     .Hero {
         height: 100%;
@@ -288,7 +640,7 @@ h1 {
   }
   .mobile-nav {
     left: 2000px;
-    background-color: #36262bee;
+    background-color: #0e5948;
     width: 60vw;
   }
   @-webkit-keyframes slide {
@@ -312,11 +664,17 @@ h1 {
   }
   .mobile-nav.is-active {
     -webkit-animation: slide 0.4s forwards;
-            animation: slide 0.4s forwards;
+    animation: slide 0.4s forwards;
     -webkit-animation-timing-function: cubic-bezier(0.68, 0.25, 0.47, 1.46);
-            animation-timing-function: cubic-bezier(0.68, 0.25, 0.47, 1.46);
+    animation-timing-function: cubic-bezier(0.68, 0.25, 0.47, 1.46);
   }
   ::-webkit-scrollbar {
     width: 10px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .spiele {
+    padding-top: 15vw;
   }
 }
