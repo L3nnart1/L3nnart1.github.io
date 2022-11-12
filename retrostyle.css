@@ -1,0 +1,182 @@
+@font-face {
+    font-family: Head;
+    src: url("/Retro/content/Pixellari.ttf");
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+nav {
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 9.6vh;
+    background-color: rgb(167, 166, 166);
+    border: solid rgb(133, 133, 133);
+}
+.logo {
+    margin-left: 40vw;
+    position: absolute;
+    top: 4px;
+}
+.operate {
+    width: 100vw;
+    display: flex;
+    margin-top: 3.2vh;
+}
+.Nav-btn {
+    display: flex;
+    margin-top: 1vh;
+    margin-left: 2vw;
+}
+.Nav-btn2 {
+    margin-right: -0.2vw;
+    height: 3.5vh;
+}
+.Nav-btn3{
+    height: 3.5vh;
+}
+.web-btn {
+    margin-top: -26px;
+}
+.Nav-search {
+    display: flex;
+    margin-left: 2vw;
+}
+.Nav-add {
+    margin-right: -0.2vw;
+    height: 3.5vh;
+}
+.plus {
+    margin-top: -5px;
+    font-size: 2vh;
+}
+.Nav-web {
+    width: 55vw;
+    height: 3.5vh;
+}
+.Nav-site {
+    margin-left: 2vw;
+    height: 3.5vh;
+    width: 25vw;
+}
+.close {
+    position: absolute;
+    top: 0.8vh;
+    left: 1.2vw;
+    z-index: 99;
+}
+.mid {
+    width: 20px;
+    height: 20px;
+    background-color: yellow;
+}
+
+.nav2 {
+    opacity: 0;                                           /*  Unsichtbar  */
+    height: 4.5vh;
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+    background-color: rgb(221, 221, 221);
+    border: solid rgb(202, 202, 202);
+}
+.nav2.is-active {
+    opacity: 1;
+}
+.options {
+    border-top: solid #007bff 5px;
+    padding-top: 0.1vh;
+    margin-top: -0.2vh;
+    margin-left: 5vw;
+    display: flex;
+    width: 55vw;
+    justify-content: space-between;
+}
+.right-opt {
+    display: flex;
+    margin-right: 2vw;
+}
+a {
+    text-decoration: none;
+    font-size: 2.5vh;
+    font-weight: 50;
+}
+.active {
+    color: black;
+}
+.sign-in {
+    margin-right: 3vw;
+    margin-top: 0.2vh;
+}
+.main-Search {
+    font-family: Head;
+    font-size: 7vw;
+    margin-left: 32vw;
+    margin-top: 15vh;
+}
+.main-Search span:nth-child(1){
+    color: blue;
+}
+.main-Search span:nth-child(2){
+    color: red;
+}
+.main-Search span:nth-child(3){
+    color: rgb(230, 230, 50);
+}
+.main-Search span:nth-child(4){
+    color: blue;
+}
+.main-Search span:nth-child(5){
+    color: green;
+}
+.main-Search span:nth-child(6){
+    color: red;
+}
+.bar{
+    display: flex;
+}
+.main-input {
+    width: 36vw;
+    margin-left: 30vw;
+}
+.enter {
+    width: 4vw;
+}
+.Lucky-search {
+    width: 13vw;
+    height: 5vh;
+    margin-left: 42.5vw;
+    margin-top: 2vh;
+}
+.innerluck {
+    font-size: 1.8vh;
+    padding-top: 0.3vh;
+}
+.rights{
+    margin-left: 41.5vw;
+    font-weight: 10;
+    margin-top: 27vh;
+}
+.footer {
+    position: absolute;
+    display: flex;
+    width: 100vw;
+    height: 5vh;
+    bottom: 0;
+    background-color: rgb(221, 221, 221);
+    border-top: solid rgb(202, 202, 202);
+}
+.footcontain {
+    width: 60vw;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20vw;
+    margin-top: 1vh;
+    font-size: 1vw;
+}
+h6 {
+    color: black;
+}
