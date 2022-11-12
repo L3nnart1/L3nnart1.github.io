@@ -6,27 +6,27 @@
 
 @font-face {
   font-family: Wulkanitalic;
-  src: url("/Main/font/WulkanDisplayItalic.ttf");
+  src: url("WulkanDisplayItalic.ttf");
 }
 @font-face {
   font-family: "Wulkan";
-  src: url("/Main/font/WulkanDisplayMedium.ttf");
+  src: url("WulkanDisplayMedium.ttf");
 }
 @font-face {
   font-family: "Wulkanlight";
-  src: url("/Main/font/WulkanDisplayLight.ttf");
+  src: url("WulkanDisplayLight.ttf");
 }
 @font-face {
   font-family: culture;
-  src: url("/Main/font/culture-bold-webfont.ttf");
+  src: url("culture-bold-webfont.ttf");
 }
 @font-face {
   font-family: spacemono;
-  src: url(/Main/content/SpaceMono-Regular.ttf);
+  src: url(SpaceMono-Regular.ttf);
 }
 @font-face {
   font-family: spacemono-bold;
-  src: url(/Main/content/SpaceMono-Bold.ttf);
+  src: url(SpaceMono-Bold.ttf);
 }
 
 * {
@@ -244,7 +244,7 @@ h1 {
     letter-spacing: -0.5vw;
 }
 .Landertxt{
-    background-image: url(/Main/content/giphy-abstrakt.gif);
+    background-image: url(giphy-abstrakt.gif);
     background-size: cover;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
