@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+</head>
+<body>
+    <header>
+        <div class="Logo">
+            <h2 class="Logoheader">Lennart <br> Lobitz</h2>
+        </div>
+        <button class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+    <nav class="mobile-nav">
+        <div class="tophome">
+            <a class="homelink toplink" href="#">Home</a>
+            <a class="homelink" href="#">Projekte</a>
+            <a class="homelink" href="#">Kontakt</a>
+        </div>
+    </nav>
+    <div class="Hero">
+        <div class="Landertxt"><h1 class="oben">WEB DEVELOPMENT </h1><br><h1 class="unten"> PORTFOLIO-Lennart</h1></div></div>
+    </div>
+    <main>
+        <div class="spiele">
+            <div class="Projekt-1">
+                <a href="/Retro/retroindex.html" class="P1-header" data-aos="fade-up" data-aos-duration="1000">8bit Internet</a>
+                <img  src="/Main/content/Unbenan.png" class="img" data-aos="fade-in" data-aos-duration="1000"></img>
+                <p class="P1-sub" data-aos="fade-up" data-aos-duration="1000">Ein Projekt, dass an die alten Zeiten des Internets erinnern soll. Vielleicht verstecken sich dort auch noch Geheimnisse</p>
+            </div>
+
+            <div class="Projekt-2">
+                <img src="/Main/content/snakecolor1.png" class="P2-img1" data-aos="fade-in" data-aos-duration="1000"></img>
+                <a href="/snake/index.html" class="P2-header" data-aos="fade-up" data-aos-duration="1000"> <span></span> <span>S</span> <span>N</span><span>A</span><span>K</span><span>E</span> </a>
+                <img src="/Main/content/snakecolor2.png" class="P2-img2" data-aos="fade-in" data-aos-duration="1000"></img>
+                <p class="P2-info" data-aos="fade-up" data-aos-duration="1000">Einfaches Snake-Spiel <br> in Javascript programiert mit <br> Details für mehr Abwechslung. <br> Probiers aus</p>
+            </div>
+            <div class="gameall">
+                <h3 class="gametitle">Simulation</h3>
+                <div id="game" class="gamecont">
+                </div>
+                <h3 class="gamesub">Eine Simulation mit Hilfe von Matter.js</h3>
+            </div>
+            <div class="Projekt-3">
+                <img src="/Main/content/pong1.png" class="P3-img1" data-aos="fade-in" data-aos-duration="1000"></img>
+                <a href="/Ping pong/pongindex.html" class="P3-header" data-aos="fade-up" data-aos-duration="1000">Ping Pong</a>
+                <p class="P3-sub" data-aos="fade-up" data-aos-duration="1000">Ein kleines Javascript Projekt nach dem Vorbild des Klassikers Pong. Optimiert für die mobile Nutzung</p>
+                <img src="/Main/content/Snake1.png" class="P3-img2" data-aos="fade-in" data-aos-duration="1000"></img>
+            </div>
+        </div>
+        <p></p>
+    </main>
+    <footer>
+        <div class="outer">
+            <h6 class="foot1" data-rateY="-1" data-direction="vertical">Javascript</h6>
+            <h6 class="foot2">css</h6>
+        </div>
+    </footer>
+    <div class="info">
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><h6 class="Imp">Impressum</h6></a>
+        <h6 class="copy">©LennartLobitz</h6> <br>
+    </div>
+</body>
+<script src="main.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<script src="/matter.js"></script>
+<script>
+let game = document.querySelector("#game");
+
+let engine = Matter.Engine.create();
+
+    let render = Matter.Render.create({
+        element: game,
+        engine: engine,
+        options: {
+          width: window.innerWidth *0.8,
+          height: 800, 
+          wireframes: false
+      }
+    });
+    
+    let ground = Matter.Bodies.rectangle(900, 770, window.innerWidth *0.9, 20, { isStatic: true }); 
+
+    let wall = Matter.Bodies.rectangle(window.innerWidth *0.8, 100, 10, 1500, { isStatic: true }); 
+
+    let platform = Matter.Bodies.rectangle(1200, 500, 300, 20, { isStatic: true });;
+    
+    let ball = Matter.Bodies.circle(300, 600,20);
+    let sling = Matter.Constraint.create({ 
+          pointA: { x: 300, y: 600 }, 
+          bodyB: ball, 
+          stiffness: 0.05
+      });
+    
+    let mouse = Matter.Mouse.create(render.canvas);
+    let mouseConstraint = Matter.MouseConstraint.create(engine, {
+          mouse: mouse,
+          constraint: {
+              render: {visible: false}
+          }
+      });
+    render.mouse = mouse;
+    
+    let firing = false;
+    Matter.Events.on(mouseConstraint,'enddrag', function(e) {
+      if(e.body === ball) firing = true;
+    });
+    Matter.Events.on(engine,'afterUpdate', function() {
+      if (firing && Math.abs(ball.position.x-300) < 20 && Math.abs(ball.position.y-600) < 20) {
+          ball = Matter.Bodies.circle(300, 600, 20);
+          Matter.World.add(engine.world, ball);
+          sling.bodyB = ball;
+          firing = false;
+      }
+    });
+
+    let stack = Matter.Composites.stack(1100, 100, 4, 6, 0, 0, function(x, y) { 
+          return Matter.Bodies.polygon(x, y, 8, 30);
+      });
+    
+    Matter.World.add(engine.world, [stack, ground, ball, sling, mouseConstraint,wall, platform]);
+    Matter.Engine.run(engine);
+    Matter.Render.run(render);
+    </script>
+</html>
